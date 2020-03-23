@@ -1,0 +1,51 @@
+// FONTS
+$font-path: '/template/fonts/';
+
+@font-face {
+    font-family: 'Bender';
+    src: url($font-path + 'benderlight.woff2') format('woff2'),
+        url($font-path + 'benderlight.woff') format('woff');
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+@font-face {
+    font-family: 'Bender';
+    src: url($font-path + 'benderlightitalic.woff2') format('woff2'),
+        url($font-path + 'benderlightitalic.woff') format('woff');
+    font-weight: 300;
+    font-style: italic;
+    font-display: swap;
+}
+@font-face {
+    font-family: 'Bender';
+    src: url($font-path + 'bender.woff2') format('woff2'),
+        url($font-path + 'bender.woff') format('woff');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+@font-face {
+    font-family: 'Bender';
+    src: url($font-path + 'benderitalic.woff2') format('woff2'),
+        url($font-path + 'benderitalic.woff') format('woff');
+    font-weight: 400;
+    font-style: italic;
+    font-display: swap;
+}
+@font-face {
+    font-family: 'Bender';
+    src: url($font-path + 'benderbold.woff2') format('woff2'),
+        url($font-path + 'benderbold.woff') format('woff');
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}
+@font-face {
+    font-family: 'Bender';
+    src: url($font-path + 'benderbolditalic.woff2') format('woff2'),
+        url($font-path + 'benderbolditalic.woff') format('woff');
+    font-weight: 700;
+    font-style: italic;
+    font-display: swap;
+}

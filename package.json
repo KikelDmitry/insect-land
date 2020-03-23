@@ -1,0 +1,36 @@
+{
+  "name": "kikel_dmitry_homepage",
+  "version": "1.0.0",
+  "description": "kikel.net frontend",
+  "main": "index.html",
+  "scripts": {
+    "dev": "gulp dev",
+    "build": "gulp build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/KikelDmitry/insect-land.git"
+  },
+  "author": "kikel_dmitry",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/KikelDmitry/insect-land/issues"
+  },
+  "homepage": "https://github.com/KikelDmitry/insect-land#readme",
+  "dependencies": {},
+  "devDependencies": {
+    "browser-sync": "^2.26.7",
+    "gulp": "^4.0.2",
+    "gulp-autoprefixer": "^6.1.0",
+    "gulp-cheerio": "^0.6.3",
+    "gulp-imagemin": "^7.1.0",
+    "gulp-minify": "^3.1.0",
+    "gulp-pug": "^4.0.1",
+    "gulp-sass": "^4.0.2",
+    "gulp-svg-sprite": "^1.5.0",
+    "gulp-svgmin": "^2.2.0",
+    "imagemin-mozjpeg": "^8.0.0",
+    "imagemin-pngquant": "^8.0.0",
+    "imagemin-zopfli": "^6.0.0"
+  }
+}

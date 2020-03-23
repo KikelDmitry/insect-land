@@ -1,0 +1,33 @@
+// variables
+
+//mixins
+@mixin dFirst($size) {
+    @media (max-width: $size + px) {
+        @content;
+    }
+}
+@mixin mFirst($size) {
+    @media (min-width: $size + px) {
+        @content;
+    }
+}
+
+//main-colors
+$first-color: #202225;
+$second-color: #fff;
+$red: #bd0000; //example
+$pg-icon-color: #ffff99;
+$yellow: #f6d74b;
+$contrastBlue: #519dff;
+$contrastBlue--bw: #a8a8a8;
+$cbForm: lighten($first-color, 10%);
+
+//social-colors
+$vk-color: #4a76a8;
+$fb-color: #3b5998;
+$insta-color: #c32aa3;
+$youtube-color: #ff0000;
+$twitter-color: #1da1f2;
+$telegram-color: #2CA5E0;
+$github-color: #000000;
+
