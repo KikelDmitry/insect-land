@@ -20,10 +20,6 @@ img {
 	max-width: 100%;
 	height: auto;
 }
-main { /* ie fix */
-	display: block; 
-	width: 100%;
-}
 h1,
 h2,
 h3,
@@ -63,7 +59,7 @@ a,
 button {
 	&:focus {
 		outline: none;
-		box-shadow: 0 0 0 2px $yellow;
+		box-shadow: 0 0 0 2px $blue;
 	}
 }
 .visually-hidden {

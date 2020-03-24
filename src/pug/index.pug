@@ -4,5 +4,112 @@ html(lang="ru")
     head
         title insect-page landing page
         link(rel="stylesheet" href=dist + "css/main.css")
+
     body
-        h1 happy quarantine, bitches!
+        .wrapper
+            header.header.section
+                .header__burger
+                .header__logo
+                    img(src=dist + "img/logo.png", alt="СЭС лого")
+                nav.header__menu
+                    a(href="/") Главная
+                    a(href="#certificates") Сертификаты
+                    a(href="#price") Цены
+                    a(href="#about") О нас
+                    a(href="#contacts") Контакты
+                .header__tel.header-tel
+                    a(href="tel:+79614215824") +7(961)421-58-24
+                    a(href="tel:+78633019942") +7(863)301-99-42
+            .shift-sections
+                section.home-section.shift-sections__item
+                    .home-section__wrapper
+                        h1.home-section__title.section__title Городская служба дезинсекции
+                        .home-section__subtitle Полное уничтожение паразитов в вашей квартире за 40 минут
+                        button.home-section__button.blue-btn(type="button") Заказать
+                        .home-section__promo До 
+                            span 13 
+                            | часов дня скидка 
+                            span 10%
+                
+                h2.section__title.intersection-title 4 причины вызвать нашу службу
+                section.reasons-section.shift-sections__item
+                    .reasons-section__wrapper.reasons
+                        .reasons__item
+                            .reasons__icon
+                                svg
+                                    use(href=sprite + '#icons--reason1')
+                            .reasons__title В удобное для вас время
+                            .reasons__subtitle Работаем круглосуточно и приедем в любое время дня и ночи
+                        .reasons__item
+                            .reasons__icon
+                                svg
+                                    use(href=sprite + '#icons--reason2')
+                            .reasons__title Конфиденциально
+                            .reasons__subtitle Сохраняем анонимность и приезжаем в обычной одежде
+                        .reasons__item
+                            .reasons__icon
+                                svg
+                                    use(href=sprite + '#icons--reason3')
+                            .reasons__title Гарантия лучшей цены
+                            .reasons__subtitle 100% даем гарантию лучшей цены
+                        .reasons__item
+                            .reasons__icon
+                                svg
+                                    use(href=sprite + '#icons--reason4')
+                            .reasons__title Безопасные препараты
+                            .reasons__subtitle Используем только безопасные для людей и животных проверенные препараты
+            h2.section__title.intersection-title Как мы работаем
+            section.how-work.section
+                .how-work__item
+                    .how-work__icon
+                        svg
+                            use(href=sprite + '#icons--how1')
+                    .how-work__title Вы звоните или оставляете заявку
+                    .how-work__subtitle Опытный специалист связывается с Вами, уточняет суть проблемы, отвечает на вопросы. Консультация бесплатная.
+                .how-work__item
+                    .how-work__icon
+                        svg
+                            use(href=sprite + '#icons--how2')
+                    .how-work__title Мы выезжаем к вам
+                    .how-work__subtitle К Вам выезжает опытный дезинсектор, производит оценку заражения, определяет методы борьбы, озвучивает стоимость работы, заключает официальный договор.
+                .how-work__item
+                    .how-work__icon
+                        svg
+                            use(href=sprite + '#icons--how3')
+                    .how-work__title Производится обработка помещения
+                    .how-work__subtitle Специалист производит обработку помещения безопасными препаратами и консультирует Вас о том, как в дальнейшем избежать повторения проблемы.
+                .how-work__item
+                    .how-work__icon
+                        svg
+                            use(href=sprite + '#icons--how4')
+                    .how-work__title Ваша проблема решена
+                    .how-work__subtitle Вы получаете гарантию на услугу и можете использовать помещение по назначению.
+            section.certificates.section.section--material.section--expandable
+                h2.certificates__title.section__title Наши сертификаты
+                .certificates__body.section__body
+                    .certificates__info.cert-info
+                        h3.cert-info__title Общая информация
+                        .cert-info__body
+                            p Особенности климата, состояние жилого фонда, населения и многие другие факторы ставят дезинсекцию на одно из первых мест в жизни города – миллионника.
+                            p Большое количество коммунальных квартир и общежитий, особенно в Кировском и Ленинском районах, Темернике и Чкаловском, создают благоприятную среду для клопов, тараканов, блох и других вредителей. Количество их напрямую связано с плотностью населения на квадратный метр площади, так как эти насекомые идут на запах тела и дыхания человека, основного источника их жизни. В данных условиях дезинсекция – единственное спасение от роста популяции тараканов и клопов до катастрофических размеров. Наша компания успешно борется с ними, используя современные инсектициды, совершенное оборудование и квалифицированный персонал.
+                            p При том, что у нас низкие цены – на все наши услуги мы даем гарантию, заключаем договор и также на месте подробно расскажем как предотвратить появление насекомых в будущем.
+                    .certificates__slider
+                        .certificates__slider-inner
+                            .certificates__slide
+                                img(src=dist + "img/certs/cert1.jpg", alt="сертификат дезинсекции")
+                            .certificates__slide
+                                img(src=dist + "img/certs/cert2.jpg", alt="сертификат дезинсекции")
+                            .certificates__slide
+                                img(src=dist + "img/certs/cert1.jpg", alt="сертификат дезинсекции")
+                            .certificates__slide
+                                img(src=dist + "img/certs/cert2.jpg", alt="сертификат дезинсекции")
+                            .certificates__slide
+                                img(src=dist + "img/certs/cert1.jpg", alt="сертификат дезинсекции")
+                            .certificates__slide
+                                img(src=dist + "img/certs/cert2.jpg", alt="сертификат дезинсекции")
+                            
+
+                button.expand-btn.blue-btn.js-expand(type="button") Открыть список
+
+
+        script(src=dist + "js/bundle.min.js")

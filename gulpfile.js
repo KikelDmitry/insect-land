@@ -4,10 +4,10 @@ const gulp = require('gulp'),
     pug = require('gulp-pug'),
     autoprefixer = require('gulp-autoprefixer'),
     minify = require('gulp-minify'),
+    concat = require('gulp-concat'),
 
     //imagemin
     imagemin = require('gulp-imagemin'),
-    imageminMozJpeg = require('imagemin-mozjpeg'),
     imageminPngQuant = require('imagemin-pngquant'),
     imageminZopfli = require('imagemin-zopfli'),
 
@@ -46,14 +46,14 @@ gulp.task('svgSprite', function () {
                 pretty: true
             }
         }))
-        .pipe(cheerio({
-            run: function ($) {
-                $('[fill]').removeAttr('fill');
-                $('[stroke]').removeAttr('stroke');
-                $('[style]').removeAttr('style');
-            },
-            parserOptions: { xmlMode: true }
-        }))
+        // .pipe(cheerio({
+        //     run: function ($) {
+        //         $('[fill]').removeAttr('fill');
+        //         $('[stroke]').removeAttr('stroke');
+        //         $('[style]').removeAttr('style');
+        //     },
+        //     parserOptions: { xmlMode: true }
+        // }))
         .pipe(svgSprite({
             mode: {
                 symbol: {
@@ -76,7 +76,15 @@ gulp.task('pug', function () {
 });
 
 gulp.task('scripts', function(done) {
-    gulp.src(src + 'js/*.js')
+    let scriptsArray = [
+        src + 'js/lib/jquery-3.4.1.min.js',
+        src + 'js/lib/jquery.fancybox.js',
+        src + 'js/lib/slick.js',
+        src + 'js/lib/svg4everybody.min.js',
+        src + 'js/main.js'
+    ]
+    gulp.src(scriptsArray)
+        .pipe(concat('bundle.js'))
         .pipe(minify({
             ext: {
                 min: '.min.js'

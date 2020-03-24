@@ -11,16 +11,13 @@
         @content;
     }
 }
+$dist: '/dist';
 
 //main-colors
-$first-color: #202225;
-$second-color: #fff;
-$red: #bd0000; //example
-$pg-icon-color: #ffff99;
-$yellow: #f6d74b;
-$contrastBlue: #519dff;
-$contrastBlue--bw: #a8a8a8;
-$cbForm: lighten($first-color, 10%);
+$blue: #5FA3F4;
+$black1: #1D3C45;
+$black2: #25282D;
+$gray: #858891;
 
 //social-colors
 $vk-color: #4a76a8;
