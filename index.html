@@ -3,14 +3,28 @@
   <head>
     <title>insect-page landing page</title>
     <link rel="stylesheet" href="/dist/css/main.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#5FA3F">
   </head>
   <body>
     <div class="wrapper">
       <header class="header section">
-        <div class="header__burger"></div>
+        <button class="header__burger" type="button" data-fancybox data-src="#main-menu">
+          <svg width="44" height="44" viewBox="0 0 44 44">
+            <rect width="26" height="2" x="9" y="15" rx="1"></rect>
+            <rect width="26" height="2" x="9" y="21" rx="1"></rect>
+            <rect width="26" height="2" x="9" y="27" rx="1"></rect>
+          </svg>
+        </button>
         <div class="header__logo"><img src="/dist/img/logo.png" alt="СЭС лого"></div>
-        <nav class="header__menu"><a href="/">Главная</a><a href="#certificates">Сертификаты</a><a href="#price">Цены</a><a href="#about">О нас</a><a href="#contacts">Контакты</a></nav>
-        <div class="header__tel header-tel"><a href="tel:+79614215824">+7(961)421-58-24</a><a href="tel:+78633019942">+7(863)301-99-42</a></div>
+        <nav class="header__menu" id="main-menu"><a href="/">Главная</a><a href="#certificates">Сертификаты</a><a href="#about">О нас</a><a href="#prices">Цены</a><a href="#contacts">Контакты</a></nav>
+        <div class="header__tel header-tel">
+          <button class="header-tel__btn" type="button" data-fancybox data-src="#modal-phones">
+            <svg width="26" height="26">
+              <use href="/dist/img/svg/sprite.svg#icons--phone"></use>
+            </svg>
+          </button><a class="header-tel__item" href="tel:+79614215824">+7(961)421-58-24</a><a class="header-tel__item" href="tel:+78633019942">+7(863)301-99-42</a>
+        </div>
       </header>
       <div class="shift-sections">
         <section class="home-section shift-sections__item">
@@ -61,6 +75,7 @@
               <div class="reasons__subtitle">Используем только безопасные для людей и животных проверенные препараты</div>
             </div>
           </div>
+          <button class="blue-btn mobile-expand js-mobile-expand">Закрыть преимущества </button>
         </section>
       </div>
       <h2 class="section__title intersection-title">Как мы работаем</h2>
@@ -102,7 +117,7 @@
           <div class="how-work__subtitle">Вы получаете гарантию на услугу и можете использовать помещение по назначению.</div>
         </div>
       </section>
-      <section class="certificates section section--material section--expandable">
+      <section class="certificates section section--material section--expandable" id="certificates">
         <h2 class="certificates__title section__title">Наши сертификаты</h2>
         <div class="certificates__body section__body">
           <div class="certificates__info cert-info">
@@ -124,8 +139,168 @@
             </div>
           </div>
         </div>
-        <button class="expand-btn blue-btn js-expand" type="button">Открыть список</button>
+        <div class="expand-btn">
+          <button class="blue-btn js-expand" type="button">Открыть список</button>
+        </div>
       </section>
+      <h2 class="section__title intersection-title" id="about">Уничтожаем любых вредителей</h2>
+      <section class="para-types section section--material">
+        <div class="para-types__head type-head">
+          <button class="type-head__item tab-item is-active">Крысы</button>
+          <button class="type-head__item tab-item">Тараканы</button>
+          <button class="type-head__item tab-item">Мыши</button>
+          <button class="type-head__item tab-item">Клопы</button>
+          <button class="type-head__item tab-item">Плесень</button>
+          <button class="type-head__item tab-item">Запахи</button>
+        </div>
+        <div class="para-types__body type-body">
+          <div class="type-body__item pest-item tab-container">
+            <div class="pest-item__left">
+              <div class="pest-item__text">Независимо от принадлежности к тому или иному виду, крысы являются опасными соседями для человека, а их травля и истребление — непростая задача, так как грызуны быстро размножаются, восстанавливая популяцию. Полностью провести уничтожение крыс собственными силами практически невозможно, и чем раньше вы обратитесь за помощью к специалистам, тем быстрее решится проблема.</div>
+              <button class="pest-item__btn blue-btn">Заказать обработку</button>
+            </div>
+            <div class="pest-item__right"><img src="/dist/img/rat.jpg" alt="крыса фото"></div>
+          </div>
+          <div class="type-body__item pest-item tab-container">
+            <div class="pest-item__left">
+              <div class="pest-item__text">Независимо от принадлежности к тому или иному виду, крысы являются опасными соседями для человека, а их травля и истребление — непростая задача, так как грызуны быстро размножаются, восстанавливая популяцию. Полностью провести уничтожение крыс собственными силами практически невозможно, и чем раньше вы обратитесь за помощью к специалистам, тем быстрее решится проблема.</div>
+              <button class="pest-item__btn blue-btn">Заказать обработку</button>
+            </div>
+            <div class="pest-item__right"><img src="/dist/img/mouse.jpg" alt="мышь фото"></div>
+          </div>
+          <div class="type-body__item pest-item tab-container">
+            <div class="pest-item__left">
+              <div class="pest-item__text">Независимо от принадлежности к тому или иному виду, крысы являются опасными соседями для человека, а их травля и истребление — непростая задача, так как грызуны быстро размножаются, восстанавливая популяцию. Полностью провести уничтожение крыс собственными силами практически невозможно, и чем раньше вы обратитесь за помощью к специалистам, тем быстрее решится проблема.</div>
+              <button class="pest-item__btn blue-btn">Заказать обработку</button>
+            </div>
+            <div class="pest-item__right"><img src="/dist/img/roach.jpg" alt="таракан фото"></div>
+          </div>
+          <div class="type-body__item pest-item tab-container">
+            <div class="pest-item__left">
+              <div class="pest-item__text">Независимо от принадлежности к тому или иному виду, крысы являются опасными соседями для человека, а их травля и истребление — непростая задача, так как грызуны быстро размножаются, восстанавливая популяцию. Полностью провести уничтожение крыс собственными силами практически невозможно, и чем раньше вы обратитесь за помощью к специалистам, тем быстрее решится проблема.</div>
+              <button class="pest-item__btn blue-btn">Заказать обработку</button>
+            </div>
+            <div class="pest-item__right"><img src="/dist/img/bug.jpg" alt="клоп фото"></div>
+          </div>
+          <div class="type-body__item pest-item tab-container">
+            <div class="pest-item__left">
+              <div class="pest-item__text">Независимо от принадлежности к тому или иному виду, крысы являются опасными соседями для человека, а их травля и истребление — непростая задача, так как грызуны быстро размножаются, восстанавливая популяцию. Полностью провести уничтожение крыс собственными силами практически невозможно, и чем раньше вы обратитесь за помощью к специалистам, тем быстрее решится проблема.</div>
+              <button class="pest-item__btn blue-btn">Заказать обработку</button>
+            </div>
+            <div class="pest-item__right"><img src="/dist/img/mold.jpg" alt="плесень фото"></div>
+          </div>
+          <div class="type-body__item pest-item tab-container">
+            <div class="pest-item__left">
+              <div class="pest-item__text">Независимо от принадлежности к тому или иному виду, крысы являются опасными соседями для человека, а их травля и истребление — непростая задача, так как грызуны быстро размножаются, восстанавливая популяцию. Полностью провести уничтожение крыс собственными силами практически невозможно, и чем раньше вы обратитесь за помощью к специалистам, тем быстрее решится проблема.</div>
+              <button class="pest-item__btn blue-btn">Заказать обработку</button>
+            </div>
+            <div class="pest-item__right"><img src="/dist/img/smells.jpg" alt="запах фото"></div>
+          </div>
+        </div>
+      </section>
+      <section class="prices section section--material section--expandable" id="prices">
+        <h2 class="certificates__title section__title">Наши цены</h2>
+        <div class="prices__body section__body">Lorem ipsum dolor sit, amet consectetur adipisicing elit. In alias ullam pariatur deleniti nisi animi obcaecati nostrum culpa expedita totam aperiam saepe, aut voluptates accusantium aliquid quidem, molestiae sed ducimus repellendus eaque omnis qui? Eos beatae totam optio laudantium fugit quisquam incidunt? Accusantium maiores sequi aliquid ratione, corporis in explicabo praesentium nesciunt architecto nihil eius, qui placeat saepe beatae necessitatibus libero id? Incidunt unde ab vel non vero praesentium a? Iste, assumenda? Quas mollitia iusto placeat id error non, dignissimos quisquam asperiores temporibus consequuntur officia illum? Eveniet assumenda delectus quidem officiis labore veniam architecto temporibus commodi. Ipsa modi ducimus quia harum tenetur laborum deserunt eaque laudantium sunt doloremque dolorum quo veritatis tempora aut nostrum qui sequi quibusdam id sapiente odio, fuga eum maxime culpa consequuntur. Sit voluptatem assumenda qui, debitis voluptates voluptatum asperiores dolore! Deserunt obcaecati consequatur sapiente voluptate enim possimus quia voluptatem, praesentium nam suscipit similique nesciunt ducimus minus vitae unde neque ullam eos aliquam eius, quis consequuntur blanditiis iure tempora? Laborum amet recusandae nisi dolore veritatis accusantium, expedita deleniti quo earum? Cupiditate libero deleniti repellat aperiam neque sequi magnam expedita maxime rem provident! Iure omnis blanditiis eos ab obcaecati officia ducimus quis qui quos. Alias assumenda ut illum unde aspernatur quos eveniet adipisci praesentium laboriosam ipsa doloremque magnam delectus, deserunt, voluptate voluptates enim cumque iusto atque laudantium corporis vel neque! Tempora reiciendis harum exercitationem est consequuntur nulla, illo deleniti qui et rerum excepturi voluptate pariatur laudantium doloremque ipsam maiores accusantium mollitia eius dolor id reprehenderit officiis modi. Ea provident accusantium omnis quos enim, unde aut? In nulla vitae veritatis. Minus quis libero quae dolorem placeat quod, voluptatem vel esse. Beatae ut dolore doloremque repellendus accusantium veniam, aut cumque corrupti rerum voluptates expedita? Ea, delectus mollitia, quibusdam maxime assumenda ratione nemo a est laudantium, corporis maiores distinctio reprehenderit sed voluptatum dolorem obcaecati itaque molestias hic ab! Quasi, suscipit inventore voluptatem commodi eius aliquid, ipsam atque ex et, necessitatibus unde impedit vel animi veniam distinctio provident dolor autem id doloremque. Aperiam est rerum, officia nostrum ipsam libero nam deleniti laborum molestias sunt, voluptas sed odio sapiente aspernatur, voluptatem sit voluptates tempora illo dolores! Autem dignissimos alias eligendi quibusdam aliquam nihil consequuntur repellat rem fugiat vero, exercitationem voluptate veniam. Maiores doloremque quo corrupti repudiandae at voluptates possimus unde facilis veritatis nemo, fuga quas aperiam nisi. Tempore dolores ducimus, dolore nostrum aperiam vitae maiores suscipit at magnam? Explicabo officia, facere voluptatem laudantium reprehenderit dolore nisi omnis nesciunt ipsa ducimus incidunt nemo odio vel impedit saepe tenetur molestias consequatur, aspernatur itaque, repellat deleniti nostrum! Itaque soluta, eius quis eum dignissimos nisi reiciendis illum quas exercitationem, excepturi, a laudantium iure voluptates doloremque nulla odit repudiandae! Doloribus delectus rem natus minus iste. Porro, sunt praesentium? Cum quia officiis libero? Dolores reprehenderit, repellat cumque qui eos aliquam cupiditate blanditiis aliquid beatae eveniet eum. Ab numquam ut architecto inventore qui veniam doloribus nemo, pariatur expedita iusto quisquam dolore laudantium soluta libero consectetur vel quaerat. Nostrum architecto molestiae sunt distinctio aliquam totam voluptatum officia corrupti nisi? Veritatis, laboriosam.</div>
+        <div class="expand-btn">
+          <button class="blue-btn order-btn" type="button">Заказать</button>
+          <button class="blue-btn js-expand" type="button">Открыть список</button>
+        </div>
+      </section>
+      <section class="reviews section section--material">
+        <div class="reviews__top reviews-photo">
+          <div class="reviews-photo__item"><img src="/dist/img/client1.jpg" alt="фото счастливого клиента"></div>
+          <div class="reviews-photo__item"><img src="/dist/img/client1.jpg" alt="фото счастливого клиента"></div>
+          <div class="reviews-photo__item"><img src="/dist/img/client1.jpg" alt="фото счастливого клиента"></div>
+          <div class="reviews-photo__item"><img src="/dist/img/client1.jpg" alt="фото счастливого клиента"></div>
+          <div class="reviews-photo__item"><img src="/dist/img/client1.jpg" alt="фото счастливого клиента"></div>
+          <div class="reviews-photo__item"><img src="/dist/img/client1.jpg" alt="фото счастливого клиента"></div>
+          <div class="reviews-photo__item"><img src="/dist/img/client1.jpg" alt="фото счастливого клиента"></div>
+          <div class="reviews-photo__item"><img src="/dist/img/client1.jpg" alt="фото счастливого клиента"></div>
+        </div>
+        <div class="reviews__bottom reviews-body">
+          <div class="reviews-body__item">
+            <div class="reviews-body__text">Впервые столкнулась с такой проблемой как клопы пару недель назад. Решила обратиться к специалистам в этом вопросе, чтобы не рисковать своим здоровьем и не тратить время зря. Очень рада, что нашла вашу фирму, здесь мне помогли во всем разобраться, ответили на все мои вопросы, а главное — за одну обработку избавили от клопов! Отдельное спасибо мастеру Андрею, который не только все профессионально обработал, но и снял плинтуса, отодвинул мебель… Еще и рекомендации полезные дал!</div>
+            <div class="reviews-body__name">Мария</div>
+            <div class="reviews-body__position">Домохозяйка</div>
+          </div>
+          <div class="reviews-body__item">
+            <div class="reviews-body__text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed at consequuntur minima officia nobis? Dignissimos.</div>
+            <div class="reviews-body__name">Анжелика</div>
+            <div class="reviews-body__position">Домохозяйка</div>
+          </div>
+          <div class="reviews-body__item">
+            <div class="reviews-body__text">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Repellat eveniet quam quibusdam, blanditiis soluta maiores ipsum laboriosam voluptates expedita! Vitae et corrupti natus tempora doloremque necessitatibus adipisci assumenda, voluptates nulla.</div>
+            <div class="reviews-body__name">Кристина</div>
+            <div class="reviews-body__position">Домохозяйка</div>
+          </div>
+          <div class="reviews-body__item">
+            <div class="reviews-body__text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim impedit ullam accusamus, modi reiciendis consequuntur a dolores minima exercitationem? Numquam alias veniam animi.</div>
+            <div class="reviews-body__name">Елена</div>
+            <div class="reviews-body__position">Домохозяйка</div>
+          </div>
+          <div class="reviews-body__item">
+            <div class="reviews-body__text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis, natus nulla quaerat ut ipsam beatae deserunt quas reiciendis expedita quod perferendis est. Fugiat doloremque quibusdam quaerat?</div>
+            <div class="reviews-body__name">Карина</div>
+            <div class="reviews-body__position">Домохозяйка</div>
+          </div>
+          <div class="reviews-body__item">
+            <div class="reviews-body__text">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eaque similique adipisci beatae id consectetur eum consequatur minus non!</div>
+            <div class="reviews-body__name">Снежанна</div>
+            <div class="reviews-body__position">Домохозяйка</div>
+          </div>
+          <div class="reviews-body__item">
+            <div class="reviews-body__text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda corrupti sed rem quam autem tempora a! Voluptatem non numquam est dolores!</div>
+            <div class="reviews-body__name">Светлана</div>
+            <div class="reviews-body__position">Домохозяйка</div>
+          </div>
+        </div>
+      </section>
+      <h2 class="section__title intersection-title">Рабочий процесс</h2>
+      <section class="our-works section">
+        <div class="our-works__item"><img src="/dist/img/photo/photo1.jpg" alt="фотография дизинсекции"></div>
+        <div class="our-works__item"><img src="/dist/img/photo/photo2.jpg" alt="фотография дизинсекции"></div>
+        <div class="our-works__item"><img src="/dist/img/photo/photo3.jpg" alt="фотография дизинсекции"></div>
+        <div class="our-works__item"><img src="/dist/img/photo/photo1.jpg" alt="фотография дизинсекции"></div>
+        <div class="our-works__item"><img src="/dist/img/photo/photo2.jpg" alt="фотография дизинсекции"></div>
+        <div class="our-works__item"><img src="/dist/img/photo/photo3.jpg" alt="фотография дизинсекции"></div>
+        <div class="our-works__item"><img src="/dist/img/photo/photo1.jpg" alt="фотография дизинсекции"></div>
+        <div class="our-works__item"><img src="/dist/img/photo/photo2.jpg" alt="фотография дизинсекции"></div>
+        <div class="our-works__item"><img src="/dist/img/photo/photo3.jpg" alt="фотография дизинсекции"></div>
+      </section>
+      <section class="contacts section section--material" id="contacts">
+        <div class="contacts__map"><img src="/dist/img/map.jpg" alt="глобус украины"></div>
+        <div class="contacts__form-wrapper">
+          <h2 class="contacts__title section__title">Заполните форму</h2>
+          <div class="contacts__subtitle">Отправьте заявку и дезинсектор свяжется с Вами в течении 10 минут</div>
+          <form class="contacts-form" action="">
+            <div class="contacts-form__inner">
+              <input class="contacts-form__item" type="text" name="name" placeholder="Имя" required>
+              <input class="contacts-form__item" type="text" name="tel" placeholder="Телефон" required>
+              <input class="contacts-form__item" type="text" name="address" placeholder="Адрес">
+              <input class="contacts-form__item" type="email" name="email" placeholder="Почта">
+              <textarea class="contacts-form__item" name="msg" placeholder="Напишите ваш комментарий"></textarea>
+            </div>
+            <button class="contacts-form__btn blue-btn" type="submit">Отправить заявку</button>
+          </form>
+        </div>
+      </section>
+      <footer class="footer section">
+        <div class="footer__logo"><img src="/dist/img/logo.png" alt="СЭС лого"></div>
+        <nav class="footer__menu"><a href="/">Главная</a><a href="#certificates">Сертификаты</a><a href="#price">Цены</a><a href="#about">О нас</a><a href="#contacts">Контакты</a></nav>
+        <div class="footer__tel footer-tel"><a href="tel:+79614215824">+7(961)421-58-24</a><a href="tel:+78633019942">+7(863)301-99-42</a></div>
+      </footer>
+    </div>
+    <div class="modal-windows" style="display:none">
+      <div class="modal-phones" id="modal-phones">
+        <div class="modal-phones__icon">
+          <svg width="26" height="26">
+            <use href="/dist/img/svg/sprite.svg#icons--phone"></use>
+          </svg>
+        </div>
+        <div class="modal-phones__promo">До <span>13 </span>часов дня скидка <span>10%</span></div>
+        <div class="modal-phones__tel">+7(961)421-58-24</div><a class="modal-phones__btn blue-btn" href="tel:+79614215824">Позвонить</a>
+        <div class="modal-phones__tel">+7(863)301-99-42</div><a class="modal-phones__btn blue-btn" href="tel:+78633019942">Позвонить</a>
+      </div>
     </div>
     <script src="/dist/js/bundle.min.js"></script>
   </body>

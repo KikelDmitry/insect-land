@@ -4,22 +4,32 @@ html(lang="ru")
     head
         title insect-page landing page
         link(rel="stylesheet" href=dist + "css/main.css")
+        meta(name="viewport" content="width=device-width, initial-scale=1.0")
+        meta(name="theme-color" content="#5FA3F")
 
     body
         .wrapper
             header.header.section
-                .header__burger
+                button.header__burger(type="button" data-fancybox data-src="#main-menu")
+                    svg(width="44" height="44" viewBox="0 0 44 44")
+                        rect(width="26" height="2" x="9" y="15" rx="1")
+                        rect(width="26" height="2" x="9" y="21" rx="1")
+                        rect(width="26" height="2" x="9" y="27" rx="1")
+
                 .header__logo
                     img(src=dist + "img/logo.png", alt="СЭС лого")
-                nav.header__menu
+                nav.header__menu#main-menu
                     a(href="/") Главная
                     a(href="#certificates") Сертификаты
-                    a(href="#price") Цены
                     a(href="#about") О нас
+                    a(href="#prices") Цены
                     a(href="#contacts") Контакты
                 .header__tel.header-tel
-                    a(href="tel:+79614215824") +7(961)421-58-24
-                    a(href="tel:+78633019942") +7(863)301-99-42
+                    button.header-tel__btn(type="button" data-fancybox data-src="#modal-phones")
+                        svg(width="26" height="26")
+                            use(href=sprite + "#icons--phone")
+                    a.header-tel__item(href="tel:+79614215824") +7(961)421-58-24
+                    a.header-tel__item(href="tel:+78633019942") +7(863)301-99-42
             .shift-sections
                 section.home-section.shift-sections__item
                     .home-section__wrapper
@@ -58,6 +68,7 @@ html(lang="ru")
                                     use(href=sprite + '#icons--reason4')
                             .reasons__title Безопасные препараты
                             .reasons__subtitle Используем только безопасные для людей и животных проверенные препараты
+                    button.blue-btn.mobile-expand.js-mobile-expand Закрыть преимущества 
             h2.section__title.intersection-title Как мы работаем
             section.how-work.section
                 .how-work__item
@@ -84,7 +95,7 @@ html(lang="ru")
                             use(href=sprite + '#icons--how4')
                     .how-work__title Ваша проблема решена
                     .how-work__subtitle Вы получаете гарантию на услугу и можете использовать помещение по назначению.
-            section.certificates.section.section--material.section--expandable
+            section.certificates.section.section--material.section--expandable#certificates
                 h2.certificates__title.section__title Наши сертификаты
                 .certificates__body.section__body
                     .certificates__info.cert-info
@@ -107,9 +118,166 @@ html(lang="ru")
                                 img(src=dist + "img/certs/cert1.jpg", alt="сертификат дезинсекции")
                             .certificates__slide
                                 img(src=dist + "img/certs/cert2.jpg", alt="сертификат дезинсекции")
-                            
+                .expand-btn
+                    button.blue-btn.js-expand(type="button") Открыть список
+            h2.section__title.intersection-title#about Уничтожаем любых вредителей
+            section.para-types.section.section--material
+                .para-types__head.type-head
+                    button.type-head__item.tab-item.is-active Крысы
+                    button.type-head__item.tab-item Тараканы
+                    button.type-head__item.tab-item Мыши
+                    button.type-head__item.tab-item Клопы
+                    button.type-head__item.tab-item Плесень
+                    button.type-head__item.tab-item Запахи
 
-                button.expand-btn.blue-btn.js-expand(type="button") Открыть список
+                .para-types__body.type-body
+                    .type-body__item.pest-item.tab-container
+                        .pest-item__left
+                            .pest-item__text Независимо от принадлежности к тому или иному виду, крысы являются опасными соседями для человека, а их травля и истребление — непростая задача, так как грызуны быстро размножаются, восстанавливая популяцию. Полностью провести уничтожение крыс собственными силами практически невозможно, и чем раньше вы обратитесь за помощью к специалистам, тем быстрее решится проблема.
+                            button.pest-item__btn.blue-btn Заказать обработку
+                        .pest-item__right
+                            img(src="/dist/img/rat.jpg", alt="крыса фото")
+                    .type-body__item.pest-item.tab-container
+                        .pest-item__left
+                            .pest-item__text Независимо от принадлежности к тому или иному виду, крысы являются опасными соседями для человека, а их травля и истребление — непростая задача, так как грызуны быстро размножаются, восстанавливая популяцию. Полностью провести уничтожение крыс собственными силами практически невозможно, и чем раньше вы обратитесь за помощью к специалистам, тем быстрее решится проблема.
+                            button.pest-item__btn.blue-btn Заказать обработку
+                        .pest-item__right
+                            img(src="/dist/img/mouse.jpg", alt="мышь фото")
+                    .type-body__item.pest-item.tab-container
+                        .pest-item__left
+                            .pest-item__text Независимо от принадлежности к тому или иному виду, крысы являются опасными соседями для человека, а их травля и истребление — непростая задача, так как грызуны быстро размножаются, восстанавливая популяцию. Полностью провести уничтожение крыс собственными силами практически невозможно, и чем раньше вы обратитесь за помощью к специалистам, тем быстрее решится проблема.
+                            button.pest-item__btn.blue-btn Заказать обработку
+                        .pest-item__right
+                            img(src="/dist/img/roach.jpg", alt="таракан фото")
+                    .type-body__item.pest-item.tab-container
+                        .pest-item__left
+                            .pest-item__text Независимо от принадлежности к тому или иному виду, крысы являются опасными соседями для человека, а их травля и истребление — непростая задача, так как грызуны быстро размножаются, восстанавливая популяцию. Полностью провести уничтожение крыс собственными силами практически невозможно, и чем раньше вы обратитесь за помощью к специалистам, тем быстрее решится проблема.
+                            button.pest-item__btn.blue-btn Заказать обработку
+                        .pest-item__right
+                            img(src="/dist/img/bug.jpg", alt="клоп фото")
+                    .type-body__item.pest-item.tab-container
+                        .pest-item__left
+                            .pest-item__text Независимо от принадлежности к тому или иному виду, крысы являются опасными соседями для человека, а их травля и истребление — непростая задача, так как грызуны быстро размножаются, восстанавливая популяцию. Полностью провести уничтожение крыс собственными силами практически невозможно, и чем раньше вы обратитесь за помощью к специалистам, тем быстрее решится проблема.
+                            button.pest-item__btn.blue-btn Заказать обработку
+                        .pest-item__right
+                            img(src="/dist/img/mold.jpg", alt="плесень фото")
+                    .type-body__item.pest-item.tab-container
+                        .pest-item__left
+                            .pest-item__text Независимо от принадлежности к тому или иному виду, крысы являются опасными соседями для человека, а их травля и истребление — непростая задача, так как грызуны быстро размножаются, восстанавливая популяцию. Полностью провести уничтожение крыс собственными силами практически невозможно, и чем раньше вы обратитесь за помощью к специалистам, тем быстрее решится проблема.
+                            button.pest-item__btn.blue-btn Заказать обработку
+                        .pest-item__right
+                            img(src="/dist/img/smells.jpg", alt="запах фото")
+            section.prices.section.section--material.section--expandable#prices
+                h2.certificates__title.section__title Наши цены
+                .prices__body.section__body Lorem ipsum dolor sit, amet consectetur adipisicing elit. In alias ullam pariatur deleniti nisi animi obcaecati nostrum culpa expedita totam aperiam saepe, aut voluptates accusantium aliquid quidem, molestiae sed ducimus repellendus eaque omnis qui? Eos beatae totam optio laudantium fugit quisquam incidunt? Accusantium maiores sequi aliquid ratione, corporis in explicabo praesentium nesciunt architecto nihil eius, qui placeat saepe beatae necessitatibus libero id? Incidunt unde ab vel non vero praesentium a? Iste, assumenda? Quas mollitia iusto placeat id error non, dignissimos quisquam asperiores temporibus consequuntur officia illum? Eveniet assumenda delectus quidem officiis labore veniam architecto temporibus commodi. Ipsa modi ducimus quia harum tenetur laborum deserunt eaque laudantium sunt doloremque dolorum quo veritatis tempora aut nostrum qui sequi quibusdam id sapiente odio, fuga eum maxime culpa consequuntur. Sit voluptatem assumenda qui, debitis voluptates voluptatum asperiores dolore! Deserunt obcaecati consequatur sapiente voluptate enim possimus quia voluptatem, praesentium nam suscipit similique nesciunt ducimus minus vitae unde neque ullam eos aliquam eius, quis consequuntur blanditiis iure tempora? Laborum amet recusandae nisi dolore veritatis accusantium, expedita deleniti quo earum? Cupiditate libero deleniti repellat aperiam neque sequi magnam expedita maxime rem provident! Iure omnis blanditiis eos ab obcaecati officia ducimus quis qui quos. Alias assumenda ut illum unde aspernatur quos eveniet adipisci praesentium laboriosam ipsa doloremque magnam delectus, deserunt, voluptate voluptates enim cumque iusto atque laudantium corporis vel neque! Tempora reiciendis harum exercitationem est consequuntur nulla, illo deleniti qui et rerum excepturi voluptate pariatur laudantium doloremque ipsam maiores accusantium mollitia eius dolor id reprehenderit officiis modi. Ea provident accusantium omnis quos enim, unde aut? In nulla vitae veritatis. Minus quis libero quae dolorem placeat quod, voluptatem vel esse. Beatae ut dolore doloremque repellendus accusantium veniam, aut cumque corrupti rerum voluptates expedita? Ea, delectus mollitia, quibusdam maxime assumenda ratione nemo a est laudantium, corporis maiores distinctio reprehenderit sed voluptatum dolorem obcaecati itaque molestias hic ab! Quasi, suscipit inventore voluptatem commodi eius aliquid, ipsam atque ex et, necessitatibus unde impedit vel animi veniam distinctio provident dolor autem id doloremque. Aperiam est rerum, officia nostrum ipsam libero nam deleniti laborum molestias sunt, voluptas sed odio sapiente aspernatur, voluptatem sit voluptates tempora illo dolores! Autem dignissimos alias eligendi quibusdam aliquam nihil consequuntur repellat rem fugiat vero, exercitationem voluptate veniam. Maiores doloremque quo corrupti repudiandae at voluptates possimus unde facilis veritatis nemo, fuga quas aperiam nisi. Tempore dolores ducimus, dolore nostrum aperiam vitae maiores suscipit at magnam? Explicabo officia, facere voluptatem laudantium reprehenderit dolore nisi omnis nesciunt ipsa ducimus incidunt nemo odio vel impedit saepe tenetur molestias consequatur, aspernatur itaque, repellat deleniti nostrum! Itaque soluta, eius quis eum dignissimos nisi reiciendis illum quas exercitationem, excepturi, a laudantium iure voluptates doloremque nulla odit repudiandae! Doloribus delectus rem natus minus iste. Porro, sunt praesentium? Cum quia officiis libero? Dolores reprehenderit, repellat cumque qui eos aliquam cupiditate blanditiis aliquid beatae eveniet eum. Ab numquam ut architecto inventore qui veniam doloribus nemo, pariatur expedita iusto quisquam dolore laudantium soluta libero consectetur vel quaerat. Nostrum architecto molestiae sunt distinctio aliquam totam voluptatum officia corrupti nisi? Veritatis, laboriosam.
+                .expand-btn
+                    button.blue-btn.order-btn(type="button") Заказать
+                    button.blue-btn.js-expand(type="button") Открыть список
+            section.reviews.section.section--material
+                .reviews__top.reviews-photo
+                    .reviews-photo__item
+                        img(src=dist + "img/client1.jpg", alt="фото счастливого клиента")
+                    .reviews-photo__item
+                        img(src=dist + "img/client1.jpg", alt="фото счастливого клиента")
+                    .reviews-photo__item
+                        img(src=dist + "img/client1.jpg", alt="фото счастливого клиента")
+                    .reviews-photo__item
+                        img(src=dist + "img/client1.jpg", alt="фото счастливого клиента")
+                    .reviews-photo__item
+                        img(src=dist + "img/client1.jpg", alt="фото счастливого клиента")
+                    .reviews-photo__item
+                        img(src=dist + "img/client1.jpg", alt="фото счастливого клиента")
+                    .reviews-photo__item
+                        img(src=dist + "img/client1.jpg", alt="фото счастливого клиента")
+                    .reviews-photo__item
+                        img(src=dist + "img/client1.jpg", alt="фото счастливого клиента")
+                .reviews__bottom.reviews-body
+                    .reviews-body__item
+                        .reviews-body__text Впервые столкнулась с такой проблемой как клопы пару недель назад. Решила обратиться к специалистам в этом вопросе, чтобы не рисковать своим здоровьем и не тратить время зря. Очень рада, что нашла вашу фирму, здесь мне помогли во всем разобраться, ответили на все мои вопросы, а главное — за одну обработку избавили от клопов! Отдельное спасибо мастеру Андрею, который не только все профессионально обработал, но и снял плинтуса, отодвинул мебель… Еще и рекомендации полезные дал!
+                        .reviews-body__name Мария
+                        .reviews-body__position Домохозяйка
+                    .reviews-body__item
+                        .reviews-body__text Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed at consequuntur minima officia nobis? Dignissimos.
+                        .reviews-body__name Анжелика
+                        .reviews-body__position Домохозяйка
+                    .reviews-body__item
+                        .reviews-body__text Lorem ipsum dolor sit amet consectetur, adipisicing elit. Repellat eveniet quam quibusdam, blanditiis soluta maiores ipsum laboriosam voluptates expedita! Vitae et corrupti natus tempora doloremque necessitatibus adipisci assumenda, voluptates nulla.
+                        .reviews-body__name Кристина
+                        .reviews-body__position Домохозяйка
+                    .reviews-body__item
+                        .reviews-body__text Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim impedit ullam accusamus, modi reiciendis consequuntur a dolores minima exercitationem? Numquam alias veniam animi.
+                        .reviews-body__name Елена
+                        .reviews-body__position Домохозяйка
+                    .reviews-body__item
+                        .reviews-body__text Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis, natus nulla quaerat ut ipsam beatae deserunt quas reiciendis expedita quod perferendis est. Fugiat doloremque quibusdam quaerat?
+                        .reviews-body__name Карина
+                        .reviews-body__position Домохозяйка
+                    .reviews-body__item
+                        .reviews-body__text Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eaque similique adipisci beatae id consectetur eum consequatur minus non!
+                        .reviews-body__name Снежанна
+                        .reviews-body__position Домохозяйка
+                    .reviews-body__item
+                        .reviews-body__text Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda corrupti sed rem quam autem tempora a! Voluptatem non numquam est dolores!
+                        .reviews-body__name Светлана
+                        .reviews-body__position Домохозяйка
+            h2.section__title.intersection-title Рабочий процесс
+            section.our-works.section
+                .our-works__item
+                    img(src=dist + "img/photo/photo1.jpg", alt="фотография дизинсекции")
+                .our-works__item
+                    img(src=dist + "img/photo/photo2.jpg", alt="фотография дизинсекции")
+                .our-works__item
+                    img(src=dist + "img/photo/photo3.jpg", alt="фотография дизинсекции")
+                .our-works__item
+                    img(src=dist + "img/photo/photo1.jpg", alt="фотография дизинсекции")
+                .our-works__item
+                    img(src=dist + "img/photo/photo2.jpg", alt="фотография дизинсекции")
+                .our-works__item
+                    img(src=dist + "img/photo/photo3.jpg", alt="фотография дизинсекции")
+                .our-works__item
+                    img(src=dist + "img/photo/photo1.jpg", alt="фотография дизинсекции")
+                .our-works__item
+                    img(src=dist + "img/photo/photo2.jpg", alt="фотография дизинсекции")
+                .our-works__item
+                    img(src=dist + "img/photo/photo3.jpg", alt="фотография дизинсекции")
+            section.contacts.section.section--material#contacts
+                .contacts__map
+                    img(src=dist + "img/map.jpg", alt="глобус украины")
+                .contacts__form-wrapper
+                    h2.contacts__title.section__title Заполните форму
+                    .contacts__subtitle Отправьте заявку и дезинсектор свяжется с Вами в течении 10 минут
+                    form.contacts-form(action="")
+                        .contacts-form__inner
+                            input.contacts-form__item(type="text" name="name" placeholder="Имя" required)
+                            input.contacts-form__item(type="text" name="tel" placeholder="Телефон" required)
+                            input.contacts-form__item(type="text" name="address" placeholder="Адрес")
+                            input.contacts-form__item(type="email" name="email" placeholder="Почта")
+                            textarea.contacts-form__item(name="msg" placeholder="Напишите ваш комментарий")
+                        button.contacts-form__btn.blue-btn(type="submit") Отправить заявку
 
-
+            footer.footer.section
+                .footer__logo
+                    img(src=dist + "img/logo.png", alt="СЭС лого")
+                nav.footer__menu
+                    a(href="/") Главная
+                    a(href="#certificates") Сертификаты
+                    a(href="#price") Цены
+                    a(href="#about") О нас
+                    a(href="#contacts") Контакты
+                .footer__tel.footer-tel
+                    a(href="tel:+79614215824") +7(961)421-58-24
+                    a(href="tel:+78633019942") +7(863)301-99-42
+        .modal-windows(style="display:none")
+            .modal-phones#modal-phones
+                .modal-phones__icon
+                    svg(width="26" height="26")
+                        use(href=sprite + "#icons--phone")
+                .modal-phones__promo До 
+                    span 13 
+                    | часов дня скидка 
+                    span 10%
+                .modal-phones__tel +7(961)421-58-24
+                a.modal-phones__btn.blue-btn(href="tel:+79614215824") Позвонить
+                .modal-phones__tel +7(863)301-99-42
+                a.modal-phones__btn.blue-btn(href="tel:+78633019942") Позвонить
         script(src=dist + "js/bundle.min.js")
