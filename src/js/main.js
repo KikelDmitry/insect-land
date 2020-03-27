@@ -1,3 +1,6 @@
+//wow.js
+new WOW().init();
+
 //slick
 
 $(document).ready(function () {
@@ -6,6 +9,12 @@ $(document).ready(function () {
         slidesToShow: 2,
         prevArrow: '<button class="slider-arr slider-arr--left"><span class="visually-hidden">previous</span></button>',
         nextArrow: '<button class="slider-arr slider-arr--right"><span class="visually-hidden">next</span></button>',
+        responsive: [
+            {
+                breakpoint: 600,
+                settings: 'unslick'
+            }
+        ]
     })
     //reviews
     $('.reviews__top').slick({
@@ -15,6 +24,20 @@ $(document).ready(function () {
         focusOnSelect: true,
         prevArrow: '<button class="slider-arr slider-arr--left"><span class="visually-hidden">previous</span></button>',
         nextArrow: '<button class="slider-arr slider-arr--right"><span class="visually-hidden">next</span></button>',
+        responsive: [
+            {
+                breakpoint: 900,
+                settings: {
+                    slidesToShow: 3,
+                }
+            },
+            {
+                breakpoint: 460,
+                settings: {
+                    slidesToShow: 1,
+                }
+            }
+        ]
     })
     $('.reviews__bottom').slick({
         slidesToShow: 1,
@@ -28,7 +51,17 @@ $(document).ready(function () {
         arrows: false,
         dots: true,
         dotsClass: 'our-works__dots',
-        centerMode: true
+        centerMode: true,
+        swipeToSlide: true,
+        responsive: [
+            {
+                breakpoint: 800,
+                settings: {
+                    slidesToShow: 1,
+                    centerMode: false
+                }
+            }
+        ]
     })
     
 })
@@ -65,8 +98,9 @@ function mobileExpand() {
         parentSection.css('background', 'none');
         textOpen = 'Открыть преимущества';
         textClose = 'Закрыть преимущества';
-    // } else if() {
-
+    } else if (parentSection.hasClass('how-work')) {
+        textOpen = 'Открыть график';
+        textClose = 'Закрыть график ';
     } else {
         textOpen = 'Открыть default';
         textClose = 'Закрыть default';
@@ -82,7 +116,23 @@ function mobileExpand() {
     }    
 }
 
+//modals
+
+$('.header__menu a').click(function() {
+    $.fancybox.close()
+    
+    let blockId = $(this).attr('href');
+    console.log($(blockId).find('.js-expand'));
+    
+    $(blockId).find('.js-expand').click();
+
+
+})
+//tabs
+
+
 //sktabs
+
 ; (function (window, document, $, undefined) {
     if (!$) {
         return undefined;
@@ -132,11 +182,87 @@ function mobileExpand() {
         }
     });
 }(window, document, window.jQuery));
+$('.type-head__item').SKtab({
+    active: 0, 
+    tabActiveClass: 'is-active',
+    containerActiveClass: 'is-active',
+    tabContainerClass: 'tab-container',
+});
+; (function (window, document, $, undefined) {
+    if (!$) {
+        return undefined;
+    }
+    $.fn.extend({
+        SKtab: function (options) {
+            let tabActiveClass = 'is-active';
+            let containerActiveClass = 'is-active';
+            let tabContainerClass = 'tab-container2';
+            let activeTab = 0;
 
-$('.tab-item').SKtab({
-    active: 0, //Какой таб будет выбран по умолчанию
-    tabActiveClass: 'is-active', //Класс который назначается выбранному табу
-    containerActiveClass: 'is-active', //Класс который назначается выбранному контейнеру
-    tabContainerClass: 'tab-container', //Класс табконтейнеров табов
+            if (options.active) {
+                activeTab = options.active;
+            }
+
+            if (options.tabContainerClass) {
+                tabContainerClass = options.tabContainerClass;
+            }
+
+            if (options.tabActiveClass) {
+                tabActiveClass = options.tabActiveClass;
+            }
+
+            if (options.containerActiveClass) {
+                containerActiveClass = options.containerActiveClass;
+            }
+
+            $('.' + tabContainerClass).hide();
+
+            let classess = '.' + this[0].classList[0];
+
+            $(document).on('click', classess, function () {
+                if ($(this).hasClass(tabActiveClass)) {
+                    return false;
+                }                
+                $(classess).removeClass(tabActiveClass);
+                $(this).addClass(tabActiveClass);
+                let container = '#' + $(this).data('container');
+                $('.' + tabContainerClass).hide();
+                $(container).fadeIn().addClass(containerActiveClass);
+
+                return false;
+            });
+
+            $($(classess)[activeTab]).click();
+
+        }
+    });
+}(window, document, window.jQuery));
+$('.price-nav__item').SKtab({
+    active: 0, 
+    tabActiveClass: 'is-active',
+    containerActiveClass: 'is-active',
+    tabContainerClass: 'tab-container2',
 });
 
+let contactForm = $('.contacts-form');
+contactForm.on('submit', function(e) {
+    e.preventDefault();
+    let xhr = new XMLHttpRequest();
+    xhr.open('POST', '/mail.php');
+    let data = new FormData(this);
+    xhr.send(data);
+    xhr.onload = function () {
+        if (xhr.status == 200) {
+            $.fancybox.open({
+                src: '#modal-success'
+            });
+        } else if (xhr.status != 200) {
+            $.fancybox.open('ERROR !200');
+            
+        }
+        setTimeout(function() {            
+            $.fancybox.close(true);
+        }, 2000)
+    }
+    this.reset();
+})

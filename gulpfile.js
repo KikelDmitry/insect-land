@@ -13,7 +13,6 @@ const gulp = require('gulp'),
 
     //svgSprite
     svgSprite = require('gulp-svg-sprite'),
-    cheerio = require('gulp-cheerio'),
     svgmin = require('gulp-svgmin'),
 
     //globs
@@ -46,14 +45,6 @@ gulp.task('svgSprite', function () {
                 pretty: true
             }
         }))
-        // .pipe(cheerio({
-        //     run: function ($) {
-        //         $('[fill]').removeAttr('fill');
-        //         $('[stroke]').removeAttr('stroke');
-        //         $('[style]').removeAttr('style');
-        //     },
-        //     parserOptions: { xmlMode: true }
-        // }))
         .pipe(svgSprite({
             mode: {
                 symbol: {
@@ -78,6 +69,7 @@ gulp.task('pug', function () {
 gulp.task('scripts', function(done) {
     let scriptsArray = [
         src + 'js/lib/jquery-3.4.1.min.js',
+        src + 'js/lib/wow.js',
         src + 'js/lib/jquery.fancybox.js',
         src + 'js/lib/slick.js',
         src + 'js/lib/svg4everybody.min.js',

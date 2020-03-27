@@ -2,19 +2,31 @@ include _meta.pug
 doctype html
 html(lang="ru")
     head
-        title insect-page landing page
+        title Городская служба дезинсекции
+        meta(charset="UTF-8")
         link(rel="stylesheet" href=dist + "css/main.css")
         meta(name="viewport" content="width=device-width, initial-scale=1.0")
+        meta(name="description", content="Описание страницы")
+        meta(name="keywords", content="ключевые, слова")
         meta(name="theme-color" content="#5FA3F")
+        //- og
+        meta(property="og:title" content="Городская служба дезинсекции")
+        meta(property="og:image" content=dist + "img/first.jpg")
+        meta(property="og:type" content="website")
+
+        link(rel="shortcut icon", href=dist + "img/favicon.png", type="image/x-icon")
 
     body
         .wrapper
             header.header.section
-                button.header__burger(type="button" data-fancybox data-src="#main-menu")
+                button.header__burger(type="button" data-fancybox data-src="#main-menu" data-fancybox-close="false")
                     svg(width="44" height="44" viewBox="0 0 44 44")
                         rect(width="26" height="2" x="9" y="15" rx="1")
                         rect(width="26" height="2" x="9" y="21" rx="1")
                         rect(width="26" height="2" x="9" y="27" rx="1")
+                        title Меню
+                        desc иконка бургерного меню
+                            
 
                 .header__logo
                     img(src=dist + "img/logo.png", alt="СЭС лого")
@@ -28,21 +40,23 @@ html(lang="ru")
                     button.header-tel__btn(type="button" data-fancybox data-src="#modal-phones")
                         svg(width="26" height="26")
                             use(href=sprite + "#icons--phone")
+                            title Открыть телефоны
+                            desc иконка трубки
                     a.header-tel__item(href="tel:+79614215824") +7(961)421-58-24
                     a.header-tel__item(href="tel:+78633019942") +7(863)301-99-42
             .shift-sections
-                section.home-section.shift-sections__item
+                section.home-section.shift-sections__item.wow.fadeInUp
                     .home-section__wrapper
                         h1.home-section__title.section__title Городская служба дезинсекции
                         .home-section__subtitle Полное уничтожение паразитов в вашей квартире за 40 минут
-                        button.home-section__button.blue-btn(type="button") Заказать
+                        button.home-section__button.blue-btn(type="button" data-fancybox data-src="#modal-form") Заказать
                         .home-section__promo До 
                             span 13 
                             | часов дня скидка 
                             span 10%
                 
-                h2.section__title.intersection-title 4 причины вызвать нашу службу
-                section.reasons-section.shift-sections__item
+                h2.section__title.intersection-title.wow.fadeInUp 4 причины вызвать нашу службу
+                section.reasons-section.shift-sections__item.wow.fadeInUp
                     .reasons-section__wrapper.reasons
                         .reasons__item
                             .reasons__icon
@@ -69,34 +83,37 @@ html(lang="ru")
                             .reasons__title Безопасные препараты
                             .reasons__subtitle Используем только безопасные для людей и животных проверенные препараты
                     button.blue-btn.mobile-expand.js-mobile-expand Закрыть преимущества 
-            h2.section__title.intersection-title Как мы работаем
-            section.how-work.section
-                .how-work__item
-                    .how-work__icon
-                        svg
-                            use(href=sprite + '#icons--how1')
-                    .how-work__title Вы звоните или оставляете заявку
-                    .how-work__subtitle Опытный специалист связывается с Вами, уточняет суть проблемы, отвечает на вопросы. Консультация бесплатная.
-                .how-work__item
-                    .how-work__icon
-                        svg
-                            use(href=sprite + '#icons--how2')
-                    .how-work__title Мы выезжаем к вам
-                    .how-work__subtitle К Вам выезжает опытный дезинсектор, производит оценку заражения, определяет методы борьбы, озвучивает стоимость работы, заключает официальный договор.
-                .how-work__item
-                    .how-work__icon
-                        svg
-                            use(href=sprite + '#icons--how3')
-                    .how-work__title Производится обработка помещения
-                    .how-work__subtitle Специалист производит обработку помещения безопасными препаратами и консультирует Вас о том, как в дальнейшем избежать повторения проблемы.
-                .how-work__item
-                    .how-work__icon
-                        svg
-                            use(href=sprite + '#icons--how4')
-                    .how-work__title Ваша проблема решена
-                    .how-work__subtitle Вы получаете гарантию на услугу и можете использовать помещение по назначению.
-            section.certificates.section.section--material.section--expandable#certificates
+            h2.section__title.intersection-title.wow.fadeInUp Как мы работаем
+            section.how-work.section.wow.fadeInUp
+                .how-work__inner
+                    .how-work__item
+                        .how-work__icon
+                            svg
+                                use(href=sprite + '#icons--how1')
+                        .how-work__title Вы звоните или оставляете заявку
+                        .how-work__subtitle Опытный специалист связывается с Вами, уточняет суть проблемы, отвечает на вопросы. Консультация бесплатная.
+                    .how-work__item
+                        .how-work__icon
+                            svg
+                                use(href=sprite + '#icons--how2')
+                        .how-work__title Мы выезжаем к вам
+                        .how-work__subtitle К Вам выезжает опытный дезинсектор, производит оценку заражения, определяет методы борьбы, озвучивает стоимость работы, заключает официальный договор.
+                    .how-work__item
+                        .how-work__icon
+                            svg
+                                use(href=sprite + '#icons--how3')
+                        .how-work__title Производится обработка помещения
+                        .how-work__subtitle Специалист производит обработку помещения безопасными препаратами и консультирует Вас о том, как в дальнейшем избежать повторения проблемы.
+                    .how-work__item
+                        .how-work__icon
+                            svg
+                                use(href=sprite + '#icons--how4')
+                        .how-work__title Ваша проблема решена
+                        .how-work__subtitle Вы получаете гарантию на услугу и можете использовать помещение по назначению.
+                button.blue-btn.mobile-expand.js-mobile-expand Закрыть график
+            section.certificates.section.section--material.section--expandable.wow.fadeInUp#certificates
                 h2.certificates__title.section__title Наши сертификаты
+                .section__subtitle Подробная информация
                 .certificates__body.section__body
                     .certificates__info.cert-info
                         h3.cert-info__title Общая информация
@@ -111,142 +128,105 @@ html(lang="ru")
                             .certificates__slide
                                 img(src=dist + "img/certs/cert2.jpg", alt="сертификат дезинсекции")
                             .certificates__slide
-                                img(src=dist + "img/certs/cert1.jpg", alt="сертификат дезинсекции")
+                                img(src=dist + "img/certs/cert3.jpg", alt="сертификат дезинсекции")
                             .certificates__slide
-                                img(src=dist + "img/certs/cert2.jpg", alt="сертификат дезинсекции")
-                            .certificates__slide
-                                img(src=dist + "img/certs/cert1.jpg", alt="сертификат дезинсекции")
-                            .certificates__slide
-                                img(src=dist + "img/certs/cert2.jpg", alt="сертификат дезинсекции")
+                                img(src=dist + "img/certs/cert4.jpg", alt="сертификат дезинсекции")
                 .expand-btn
                     button.blue-btn.js-expand(type="button") Открыть список
-            h2.section__title.intersection-title#about Уничтожаем любых вредителей
-            section.para-types.section.section--material
-                .para-types__head.type-head
-                    button.type-head__item.tab-item.is-active Крысы
-                    button.type-head__item.tab-item Тараканы
-                    button.type-head__item.tab-item Мыши
-                    button.type-head__item.tab-item Клопы
-                    button.type-head__item.tab-item Плесень
-                    button.type-head__item.tab-item Запахи
-
-                .para-types__body.type-body
-                    .type-body__item.pest-item.tab-container
-                        .pest-item__left
-                            .pest-item__text Независимо от принадлежности к тому или иному виду, крысы являются опасными соседями для человека, а их травля и истребление — непростая задача, так как грызуны быстро размножаются, восстанавливая популяцию. Полностью провести уничтожение крыс собственными силами практически невозможно, и чем раньше вы обратитесь за помощью к специалистам, тем быстрее решится проблема.
-                            button.pest-item__btn.blue-btn Заказать обработку
-                        .pest-item__right
-                            img(src="/dist/img/rat.jpg", alt="крыса фото")
-                    .type-body__item.pest-item.tab-container
-                        .pest-item__left
-                            .pest-item__text Независимо от принадлежности к тому или иному виду, крысы являются опасными соседями для человека, а их травля и истребление — непростая задача, так как грызуны быстро размножаются, восстанавливая популяцию. Полностью провести уничтожение крыс собственными силами практически невозможно, и чем раньше вы обратитесь за помощью к специалистам, тем быстрее решится проблема.
-                            button.pest-item__btn.blue-btn Заказать обработку
-                        .pest-item__right
-                            img(src="/dist/img/mouse.jpg", alt="мышь фото")
-                    .type-body__item.pest-item.tab-container
-                        .pest-item__left
-                            .pest-item__text Независимо от принадлежности к тому или иному виду, крысы являются опасными соседями для человека, а их травля и истребление — непростая задача, так как грызуны быстро размножаются, восстанавливая популяцию. Полностью провести уничтожение крыс собственными силами практически невозможно, и чем раньше вы обратитесь за помощью к специалистам, тем быстрее решится проблема.
-                            button.pest-item__btn.blue-btn Заказать обработку
-                        .pest-item__right
-                            img(src="/dist/img/roach.jpg", alt="таракан фото")
-                    .type-body__item.pest-item.tab-container
-                        .pest-item__left
-                            .pest-item__text Независимо от принадлежности к тому или иному виду, крысы являются опасными соседями для человека, а их травля и истребление — непростая задача, так как грызуны быстро размножаются, восстанавливая популяцию. Полностью провести уничтожение крыс собственными силами практически невозможно, и чем раньше вы обратитесь за помощью к специалистам, тем быстрее решится проблема.
-                            button.pest-item__btn.blue-btn Заказать обработку
-                        .pest-item__right
-                            img(src="/dist/img/bug.jpg", alt="клоп фото")
-                    .type-body__item.pest-item.tab-container
-                        .pest-item__left
-                            .pest-item__text Независимо от принадлежности к тому или иному виду, крысы являются опасными соседями для человека, а их травля и истребление — непростая задача, так как грызуны быстро размножаются, восстанавливая популяцию. Полностью провести уничтожение крыс собственными силами практически невозможно, и чем раньше вы обратитесь за помощью к специалистам, тем быстрее решится проблема.
-                            button.pest-item__btn.blue-btn Заказать обработку
-                        .pest-item__right
-                            img(src="/dist/img/mold.jpg", alt="плесень фото")
-                    .type-body__item.pest-item.tab-container
-                        .pest-item__left
-                            .pest-item__text Независимо от принадлежности к тому или иному виду, крысы являются опасными соседями для человека, а их травля и истребление — непростая задача, так как грызуны быстро размножаются, восстанавливая популяцию. Полностью провести уничтожение крыс собственными силами практически невозможно, и чем раньше вы обратитесь за помощью к специалистам, тем быстрее решится проблема.
-                            button.pest-item__btn.blue-btn Заказать обработку
-                        .pest-item__right
-                            img(src="/dist/img/smells.jpg", alt="запах фото")
-            section.prices.section.section--material.section--expandable#prices
-                h2.certificates__title.section__title Наши цены
-                .prices__body.section__body Lorem ipsum dolor sit, amet consectetur adipisicing elit. In alias ullam pariatur deleniti nisi animi obcaecati nostrum culpa expedita totam aperiam saepe, aut voluptates accusantium aliquid quidem, molestiae sed ducimus repellendus eaque omnis qui? Eos beatae totam optio laudantium fugit quisquam incidunt? Accusantium maiores sequi aliquid ratione, corporis in explicabo praesentium nesciunt architecto nihil eius, qui placeat saepe beatae necessitatibus libero id? Incidunt unde ab vel non vero praesentium a? Iste, assumenda? Quas mollitia iusto placeat id error non, dignissimos quisquam asperiores temporibus consequuntur officia illum? Eveniet assumenda delectus quidem officiis labore veniam architecto temporibus commodi. Ipsa modi ducimus quia harum tenetur laborum deserunt eaque laudantium sunt doloremque dolorum quo veritatis tempora aut nostrum qui sequi quibusdam id sapiente odio, fuga eum maxime culpa consequuntur. Sit voluptatem assumenda qui, debitis voluptates voluptatum asperiores dolore! Deserunt obcaecati consequatur sapiente voluptate enim possimus quia voluptatem, praesentium nam suscipit similique nesciunt ducimus minus vitae unde neque ullam eos aliquam eius, quis consequuntur blanditiis iure tempora? Laborum amet recusandae nisi dolore veritatis accusantium, expedita deleniti quo earum? Cupiditate libero deleniti repellat aperiam neque sequi magnam expedita maxime rem provident! Iure omnis blanditiis eos ab obcaecati officia ducimus quis qui quos. Alias assumenda ut illum unde aspernatur quos eveniet adipisci praesentium laboriosam ipsa doloremque magnam delectus, deserunt, voluptate voluptates enim cumque iusto atque laudantium corporis vel neque! Tempora reiciendis harum exercitationem est consequuntur nulla, illo deleniti qui et rerum excepturi voluptate pariatur laudantium doloremque ipsam maiores accusantium mollitia eius dolor id reprehenderit officiis modi. Ea provident accusantium omnis quos enim, unde aut? In nulla vitae veritatis. Minus quis libero quae dolorem placeat quod, voluptatem vel esse. Beatae ut dolore doloremque repellendus accusantium veniam, aut cumque corrupti rerum voluptates expedita? Ea, delectus mollitia, quibusdam maxime assumenda ratione nemo a est laudantium, corporis maiores distinctio reprehenderit sed voluptatum dolorem obcaecati itaque molestias hic ab! Quasi, suscipit inventore voluptatem commodi eius aliquid, ipsam atque ex et, necessitatibus unde impedit vel animi veniam distinctio provident dolor autem id doloremque. Aperiam est rerum, officia nostrum ipsam libero nam deleniti laborum molestias sunt, voluptas sed odio sapiente aspernatur, voluptatem sit voluptates tempora illo dolores! Autem dignissimos alias eligendi quibusdam aliquam nihil consequuntur repellat rem fugiat vero, exercitationem voluptate veniam. Maiores doloremque quo corrupti repudiandae at voluptates possimus unde facilis veritatis nemo, fuga quas aperiam nisi. Tempore dolores ducimus, dolore nostrum aperiam vitae maiores suscipit at magnam? Explicabo officia, facere voluptatem laudantium reprehenderit dolore nisi omnis nesciunt ipsa ducimus incidunt nemo odio vel impedit saepe tenetur molestias consequatur, aspernatur itaque, repellat deleniti nostrum! Itaque soluta, eius quis eum dignissimos nisi reiciendis illum quas exercitationem, excepturi, a laudantium iure voluptates doloremque nulla odit repudiandae! Doloribus delectus rem natus minus iste. Porro, sunt praesentium? Cum quia officiis libero? Dolores reprehenderit, repellat cumque qui eos aliquam cupiditate blanditiis aliquid beatae eveniet eum. Ab numquam ut architecto inventore qui veniam doloribus nemo, pariatur expedita iusto quisquam dolore laudantium soluta libero consectetur vel quaerat. Nostrum architecto molestiae sunt distinctio aliquam totam voluptatum officia corrupti nisi? Veritatis, laboriosam.
-                .expand-btn
-                    button.blue-btn.order-btn(type="button") Заказать
-                    button.blue-btn.js-expand(type="button") Открыть список
-            section.reviews.section.section--material
+            h2.section__title.intersection-title.wow.fadeInUp#about Уничтожаем любых вредителей
+            //- УНИЧТОЖАЕМ ЛЮБЫХ ВРЕДИТЕЛЕЙ
+            include _pests.pug
+            //- цены
+            include _prices.pug
+            
+            section.reviews.section.section--material.wow.fadeInUp
                 .reviews__top.reviews-photo
                     .reviews-photo__item
-                        img(src=dist + "img/client1.jpg", alt="фото счастливого клиента")
+                        img(src=dist + "img/clients/client1.jpg", alt="фото счастливого клиента")
                     .reviews-photo__item
-                        img(src=dist + "img/client1.jpg", alt="фото счастливого клиента")
+                        img(src=dist + "img/clients/client2.jpg", alt="фото счастливого клиента")
                     .reviews-photo__item
-                        img(src=dist + "img/client1.jpg", alt="фото счастливого клиента")
+                        img(src=dist + "img/clients/client3.jpg", alt="фото счастливого клиента")
                     .reviews-photo__item
-                        img(src=dist + "img/client1.jpg", alt="фото счастливого клиента")
+                        img(src=dist + "img/clients/client4.jpg", alt="фото счастливого клиента")
                     .reviews-photo__item
-                        img(src=dist + "img/client1.jpg", alt="фото счастливого клиента")
+                        img(src=dist + "img/clients/client5.jpg", alt="фото счастливого клиента")
                     .reviews-photo__item
-                        img(src=dist + "img/client1.jpg", alt="фото счастливого клиента")
+                        img(src=dist + "img/clients/client6.jpg", alt="фото счастливого клиента")
                     .reviews-photo__item
-                        img(src=dist + "img/client1.jpg", alt="фото счастливого клиента")
+                        img(src=dist + "img/clients/client7.jpg", alt="фото счастливого клиента")
                     .reviews-photo__item
-                        img(src=dist + "img/client1.jpg", alt="фото счастливого клиента")
+                        img(src=dist + "img/clients/client8.jpg", alt="фото счастливого клиента")
                 .reviews__bottom.reviews-body
                     .reviews-body__item
-                        .reviews-body__text Впервые столкнулась с такой проблемой как клопы пару недель назад. Решила обратиться к специалистам в этом вопросе, чтобы не рисковать своим здоровьем и не тратить время зря. Очень рада, что нашла вашу фирму, здесь мне помогли во всем разобраться, ответили на все мои вопросы, а главное — за одну обработку избавили от клопов! Отдельное спасибо мастеру Андрею, который не только все профессионально обработал, но и снял плинтуса, отодвинул мебель… Еще и рекомендации полезные дал!
-                        .reviews-body__name Мария
-                        .reviews-body__position Домохозяйка
+                        .reviews-body__inner
+                            .reviews-body__text Крысы полностью пропали дня через 4, трупы не находила, запаха никакого не было. По стоимости — все как указано на сайте! Мастер приехал без опозданий, был вежлив, оставил договор. Спасибо!
+                            .reviews-body__name Надежда Васильевна
+                            .reviews-body__position Бизнес-аналитик
                     .reviews-body__item
-                        .reviews-body__text Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed at consequuntur minima officia nobis? Dignissimos.
-                        .reviews-body__name Анжелика
-                        .reviews-body__position Домохозяйка
+                        .reviews-body__inner
+                            .reviews-body__text Впервые столкнулась с такой проблемой как клопы пару недель назад. Решила обратиться к специалистам в этом вопросе, чтобы не рисковать своим здоровьем и не тратить время зря. Очень рада, что нашла вашу фирму, здесь мне помогли во всем разобраться, ответили на все мои вопросы, а главное — за одну обработку избавили от клопов! Отдельное спасибо мастеру Андрею, который не только все профессионально обработал, но и снял плинтуса, отодвинул мебель… Еще и рекомендации полезные дал!
+                            .reviews-body__name Анастасия
+                            .reviews-body__position Маркетолог
                     .reviews-body__item
-                        .reviews-body__text Lorem ipsum dolor sit amet consectetur, adipisicing elit. Repellat eveniet quam quibusdam, blanditiis soluta maiores ipsum laboriosam voluptates expedita! Vitae et corrupti natus tempora doloremque necessitatibus adipisci assumenda, voluptates nulla.
-                        .reviews-body__name Кристина
-                        .reviews-body__position Домохозяйка
+                        .reviews-body__inner
+                            .reviews-body__text Для меня самыми главными требованиями при выборе исполнителя были конфиденциальность и безопасность (у меня ребенок и две собаки). Данная компания с этими требованиями справилась на отлично! Мастер приехал в гражданском, переоделся уже в квартире. После обработки вышел уже переодетый. Запахов не было, квартиру держала закрытой, потом все перемывала. Вроде никто не пострадал. Только клопы — они полезли из дивана и из под обоев уже во время обработки, потом еще несколько дней встречала. Сейчас их нет!
+                            .reviews-body__name Виктория
+                            .reviews-body__position Кинолог
                     .reviews-body__item
-                        .reviews-body__text Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim impedit ullam accusamus, modi reiciendis consequuntur a dolores minima exercitationem? Numquam alias veniam animi.
-                        .reviews-body__name Елена
-                        .reviews-body__position Домохозяйка
+                        .reviews-body__inner
+                            .reviews-body__text Спасибо фирме, и мастеру - моему теске! Заказывали обработку от клопов. Фирма работает четко. Пришли в оговорённый день и время. Цены такие же как и на сайте, без накруток и вымогательств. Дают на руки все документы с реквизитами организации, и печатью. Причём печать не самонаборная и не смазанная. Рекомендую всем эту компанию. Конфиденциально. Мастер в бахилах и спецкостюме. Отзывы не липовые. До это сталкивались с аферистами. Если кого то мучают и достали насекомые, обращайтесь только сюда!
+                            .reviews-body__name Виктор
+                            .reviews-body__position Боец ММА
                     .reviews-body__item
-                        .reviews-body__text Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis, natus nulla quaerat ut ipsam beatae deserunt quas reiciendis expedita quod perferendis est. Fugiat doloremque quibusdam quaerat?
-                        .reviews-body__name Карина
-                        .reviews-body__position Домохозяйка
+                        .reviews-body__inner
+                            .reviews-body__text За один день решили проблему с муравьями и тараканами в съемной квартире! В удобное для меня время пришел специалист с разными препаратами и оборудованием, всю квартиру обработал. Два часа гуляла, минут десять проветривала. После этого собрала целый совок мертвых насекомых. К вечеру уже никаких следов насекомых и посторонних запахов! Супер, я рада!
+                            .reviews-body__name Елена
+                            .reviews-body__position Владелец салона красоты
                     .reviews-body__item
-                        .reviews-body__text Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eaque similique adipisci beatae id consectetur eum consequatur minus non!
-                        .reviews-body__name Снежанна
-                        .reviews-body__position Домохозяйка
+                        .reviews-body__inner
+                            .reviews-body__text Периодически вызываю службу для дезинсекции клопов в гостинице. За все время сотрудничества никаких нареканий не возникало — приезжают по звонку, никогда не опаздывают, результат максимальный. После их обработок не страшно заселять новых жильцов! Всем советую обращаться — получите профессиональную помощь!
+                            .reviews-body__name Григорий Иванович
+                            .reviews-body__position Преподаватель
                     .reviews-body__item
-                        .reviews-body__text Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda corrupti sed rem quam autem tempora a! Voluptatem non numquam est dolores!
-                        .reviews-body__name Светлана
-                        .reviews-body__position Домохозяйка
-            h2.section__title.intersection-title Рабочий процесс
-            section.our-works.section
+                        .reviews-body__inner
+                            .reviews-body__text Заказывал истребление тараканов перед продажей квартиры, остался доволен и советую всем обращаться за помощью в данную компанию! Квартира долгое время была рассадником тараканов, но мы выкинули весь хлам, убрались и обработали — постепенно все тараканы исчезли (дней за 5). Запаха практически не было.
+                            .reviews-body__name Всеволод
+                            .reviews-body__position Сталевар
+                    .reviews-body__item
+                        .reviews-body__inner
+                            .reviews-body__text Тараканы у нас в квартире появились после того, как потравили соседи снизу. Ждать долго не стали, узнали где они заказывали дезинсекцию и заказали сами. Результатом остались довольны — тараканы пропали практически сразу, запаха никакого не было, заплатила не много.
+                            .reviews-body__name Мария
+                            .reviews-body__position Музыкант
+            h2.section__title.intersection-title.wow.fadeInUp Рабочий процесс
+            section.our-works.section.wow.fadeInUp
                 .our-works__item
                     img(src=dist + "img/photo/photo1.jpg", alt="фотография дизинсекции")
-                .our-works__item
-                    img(src=dist + "img/photo/photo2.jpg", alt="фотография дизинсекции")
+                //- .our-works__item
+                //-     img(src=dist + "img/photo/photo2.jpg", alt="фотография дизинсекции")
                 .our-works__item
                     img(src=dist + "img/photo/photo3.jpg", alt="фотография дизинсекции")
                 .our-works__item
-                    img(src=dist + "img/photo/photo1.jpg", alt="фотография дизинсекции")
+                    img(src=dist + "img/photo/photo4.jpg", alt="фотография дизинсекции")
                 .our-works__item
-                    img(src=dist + "img/photo/photo2.jpg", alt="фотография дизинсекции")
+                    img(src=dist + "img/photo/photo5.jpg", alt="фотография дизинсекции")
                 .our-works__item
-                    img(src=dist + "img/photo/photo3.jpg", alt="фотография дизинсекции")
+                    img(src=dist + "img/photo/photo6.jpg", alt="фотография дизинсекции")
                 .our-works__item
-                    img(src=dist + "img/photo/photo1.jpg", alt="фотография дизинсекции")
+                    img(src=dist + "img/photo/photo7.jpg", alt="фотография дизинсекции")
                 .our-works__item
-                    img(src=dist + "img/photo/photo2.jpg", alt="фотография дизинсекции")
+                    img(src=dist + "img/photo/photo8.jpg", alt="фотография дизинсекции")
                 .our-works__item
-                    img(src=dist + "img/photo/photo3.jpg", alt="фотография дизинсекции")
-            section.contacts.section.section--material#contacts
+                    img(src=dist + "img/photo/photo9.jpg", alt="фотография дизинсекции")
+                .our-works__item
+                    img(src=dist + "img/photo/photo10.jpg", alt="фотография дизинсекции")
+            section.contacts.section.section--material.wow.fadeInUp#contacts
                 .contacts__map
-                    img(src=dist + "img/map.jpg", alt="глобус украины")
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2709.432725563266!2d39.72588151561739!3d47.22768097916136!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40e3b9a1b3303fdb%3A0x2d503a5fe5a1d3e!2z0J_Rg9GI0LrQuNC90YHQutCw0Y8g0YPQuy4sIDE2MCwg0KDQvtGB0YLQvtCyLdC90LAt0JTQvtC90YMsINCg0L7RgdGC0L7QstGB0LrQsNGPINC-0LHQuy4sIDM0NDAyMg!5e0!3m2!1sru!2sru!4v1585251736470!5m2!1sru!2sru" width="100%" height="380" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
                 .contacts__form-wrapper
                     h2.contacts__title.section__title Заполните форму
                     .contacts__subtitle Отправьте заявку и дезинсектор свяжется с Вами в течении 10 минут
-                    form.contacts-form(action="")
+                    form.contacts-form(action="/mail.php")
                         .contacts-form__inner
                             input.contacts-form__item(type="text" name="name" placeholder="Имя" required)
                             input.contacts-form__item(type="text" name="tel" placeholder="Телефон" required)
@@ -255,7 +235,7 @@ html(lang="ru")
                             textarea.contacts-form__item(name="msg" placeholder="Напишите ваш комментарий")
                         button.contacts-form__btn.blue-btn(type="submit") Отправить заявку
 
-            footer.footer.section
+            footer.footer.section.wow.fadeInUp
                 .footer__logo
                     img(src=dist + "img/logo.png", alt="СЭС лого")
                 nav.footer__menu
@@ -280,4 +260,17 @@ html(lang="ru")
                 a.modal-phones__btn.blue-btn(href="tel:+79614215824") Позвонить
                 .modal-phones__tel +7(863)301-99-42
                 a.modal-phones__btn.blue-btn(href="tel:+78633019942") Позвонить
+            .modal-form#modal-form
+                .contacts__form-wrapper
+                    h2.contacts__title.section__title Заполните форму
+                    .contacts__subtitle Отправьте заявку и дезинсектор свяжется с Вами в течении 10 минут
+                    form.contacts-form(action="/mail.php")
+                        .contacts-form__inner
+                            input.contacts-form__item(type="text" name="name" placeholder="Имя" required)
+                            input.contacts-form__item(type="text" name="tel" placeholder="Телефон" required)
+                        button.contacts-form__btn.blue-btn(type="submit") Отправить заявку
+            .modal-success#modal-success
+                .modal-success__title Спасибо за заявку!
+                .modal-success__subtitle Заявка успешно отправлена!<br>Мы постараемся обработать вашу заявку сразу же
+                button.modal-success__btn.blue-btn(type="button" data-fancybox-close) Закрыть
         script(src=dist + "js/bundle.min.js")
