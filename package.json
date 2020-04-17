@@ -1,7 +1,7 @@
 {
-  "name": "kikel_dmitry_homepage",
+  "name": "dezinsectors-home-page",
   "version": "1.0.0",
-  "description": "kikel.net frontend",
+  "description": "dezinstar.ru",
   "main": "index.html",
   "scripts": {
     "dev": "gulp dev",

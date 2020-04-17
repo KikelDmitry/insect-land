@@ -1,73 +1,81 @@
 //wow.js
 new WOW().init();
 
-//slick
+
+    
 
 $(document).ready(function () {
+    //slick
     //certificates
-    $('.certificates__slider-inner').slick({
-        slidesToShow: 2,
-        prevArrow: '<button class="slider-arr slider-arr--left"><span class="visually-hidden">previous</span></button>',
-        nextArrow: '<button class="slider-arr slider-arr--right"><span class="visually-hidden">next</span></button>',
-        responsive: [
-            {
-                breakpoint: 600,
-                settings: 'unslick'
-            }
-        ]
-    })
-    //reviews
-    $('.reviews__top').slick({
-        slidesToShow: 5,
-        asNavFor: '.reviews__bottom',
-        centerMode: true,
-        focusOnSelect: true,
-        prevArrow: '<button class="slider-arr slider-arr--left"><span class="visually-hidden">previous</span></button>',
-        nextArrow: '<button class="slider-arr slider-arr--right"><span class="visually-hidden">next</span></button>',
-        responsive: [
-            {
-                breakpoint: 900,
-                settings: {
-                    slidesToShow: 3,
+    function slickInit(cb) {
+        $('.certificates__slider-inner').slick({
+            slidesToShow: 2,
+            prevArrow: '<button class="slider-arr slider-arr--left"><span class="visually-hidden">previous</span></button>',
+            nextArrow: '<button class="slider-arr slider-arr--right"><span class="visually-hidden">next</span></button>',
+            responsive: [
+                {
+                    breakpoint: 600,
+                    settings: 'unslick'
                 }
-            },
-            {
-                breakpoint: 460,
-                settings: {
-                    slidesToShow: 1,
+            ]
+        })
+        //reviews
+        $('.reviews__top').slick({
+            slidesToShow: 5,
+            asNavFor: '.reviews__bottom',
+            centerMode: true,
+            focusOnSelect: true,
+            prevArrow: '<button class="slider-arr slider-arr--left"><span class="visually-hidden">previous</span></button>',
+            nextArrow: '<button class="slider-arr slider-arr--right"><span class="visually-hidden">next</span></button>',
+            responsive: [
+                {
+                    breakpoint: 900,
+                    settings: {
+                        slidesToShow: 3,
+                    }
+                },
+                {
+                    breakpoint: 460,
+                    settings: {
+                        slidesToShow: 1,
+                    }
                 }
-            }
-        ]
-    })
-    $('.reviews__bottom').slick({
-        slidesToShow: 1,
-        asNavFor: '.reviews__top',
-        arrows: false,
-        fade: true
-    })
-    //our works
-    $('.our-works').slick({
-        slidesToShow: 3,
-        arrows: false,
-        dots: true,
-        dotsClass: 'our-works__dots',
-        centerMode: true,
-        swipeToSlide: true,
-        responsive: [
-            {
-                breakpoint: 800,
-                settings: {
-                    slidesToShow: 1,
-                    centerMode: false
+            ]
+        })
+        $('.reviews__bottom').slick({
+            slidesToShow: 1,
+            asNavFor: '.reviews__top',
+            arrows: false,
+            fade: true
+        })
+        //our works
+        $('.our-works').slick({
+            slidesToShow: 3,
+            arrows: false,
+            dots: true,
+            dotsClass: 'our-works__dots',
+            centerMode: true,
+            swipeToSlide: true,
+            responsive: [
+                {
+                    breakpoint: 800,
+                    settings: {
+                        slidesToShow: 1,
+                        centerMode: false
+                    }
                 }
-            }
-        ]
-    })
-    
-})
-//expandable blocks
-$(document).ready(function () {
-    $('.section--expandable > .section__body').slideUp();
+            ]
+        })        
+        cb();
+    }
+    //expandable blocks
+    function hideExp() {
+        setTimeout(function() {
+            $('.section--expandable > .section__body').slideUp();
+        }, 500)
+        
+    }
+    slickInit(hideExp);
 })
 let expandBtn = $('.js-expand'),
     mobExpandBtn = $('.js-mobile-expand');
