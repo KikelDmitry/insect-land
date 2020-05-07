@@ -1,96 +1,105 @@
-const gulp = require('gulp'),
-    browserSync = require('browser-sync'),
-    sass = require('gulp-sass'),
-    pug = require('gulp-pug'),
-    autoprefixer = require('gulp-autoprefixer'),
-    minify = require('gulp-minify'),
-    concat = require('gulp-concat'),
+'use strict';
 
-    //imagemin
+//PCKGS
+let gulp = require('gulp'),
+
+    //COMMON
+    browserSync = require('browser-sync'),
+    concat = require('gulp-concat'),
+    del = require('del'),
+
+    //HTML
+    pug = require('gulp-pug'),
+
+    //CSS
+    sass = require('gulp-sass'),
+    autoprefixer = require('gulp-autoprefixer'),
+    csso = require('gulp-csso'),
+
+    //JS
+    minify = require('gulp-minify'),
+
+
+    //IMG
+    //bitmap
     imagemin = require('gulp-imagemin'),
     imageminPngQuant = require('imagemin-pngquant'),
     imageminZopfli = require('imagemin-zopfli'),
 
-    //svgSprite
+    //svg
     svgSprite = require('gulp-svg-sprite'),
     svgmin = require('gulp-svgmin'),
 
-    //globs
+    //GLOBS
     src = 'src/',
-    dest = 'dist/';
+    dest = 'build/';
 
+//TASKS
 gulp.task('browser-sync', function () {
     browserSync.init({
         server: {
-            baseDir: './'
+            baseDir: dest
         }
-    });
+    })
 });
 
-gulp.task('scss', function () {
-    return gulp.src(src + 'scss/**/*.scss')
-        .pipe(sass({ outputStyle: 'compressed' }).on('error', sass.logError))
-        .pipe(autoprefixer({
-            overrideBrowserslist: ['last 2 versions'],
-            cascade: false
-        }))
-        .pipe(gulp.dest(dest + 'css'))
-        .pipe(browserSync.stream())
-});
-
-gulp.task('svgSprite', function () {
-    return gulp.src(src + 'img/svg/sprite/**/*.svg') // svg files for sprite
-        .pipe(svgmin({
-            js2svg: {
-                pretty: true
-            }
-        }))
-        .pipe(svgSprite({
-            mode: {
-                symbol: {
-                    sprite: "../sprite.svg"  //sprite file name
-                }
-            },
-        }
-        ))
-        .pipe(gulp.dest(dest + 'img/svg'));
-});
-
+//html
 gulp.task('pug', function () {
-    return gulp.src(src + 'pug/**/!(_)*.pug')
+    return gulp.src(`${src}pug/!(_)*.pug`)
         .pipe(pug({
             pretty: true, //deprecated ¯\_(ツ)_/¯
             basedir: './'
         }))
-        .pipe(gulp.dest('./'))
+        .pipe(gulp.dest(dest))
         .pipe(browserSync.stream())
 });
 
-gulp.task('scripts', function(done) {
-    let scriptsArray = [
-        src + 'js/lib/jquery-3.4.1.min.js',
-        src + 'js/lib/wow.js',
-        src + 'js/lib/jquery.fancybox.js',
-        src + 'js/lib/slick.js',
-        src + 'js/lib/svg4everybody.min.js',
-        src + 'js/main.js'
-    ]
-    gulp.src(scriptsArray)
+//css
+gulp.task('css', function () {
+    return gulp.src(`${src}scss/**/*.scss`)
+        .pipe(sass({
+            outputStyle: 'compressed'
+        })).on('error', sass.logError)
+        .pipe(csso())
+        .pipe(autoprefixer({
+            cascade: false
+        }))
+        .pipe(gulp.dest(`${dest}css`))
+        .pipe(browserSync.stream())
+});
+
+//js
+
+//js files list in order
+// let scriptsList = [
+//	 `${src}js/main.js`,
+//	 `${src}js/add.js`
+// ]
+
+let scriptsArray = [
+    src + 'js/lib/jquery-3.4.1.min.js',
+    src + 'js/lib/wow.js',
+    src + 'js/lib/jquery.fancybox.js',
+    src + 'js/lib/slick.js',
+    src + 'js/lib/svg4everybody.min.js',
+    src + 'js/main.js'
+]
+
+gulp.task('scripts', function () {
+    return gulp.src(scriptsArray)
         .pipe(concat('bundle.js'))
         .pipe(minify({
             ext: {
                 min: '.min.js'
             }
-        }
-        ))
-        .pipe(gulp.dest(dest + 'js'))
+        }))
+        .pipe(gulp.dest(`${dest}js`))
         .pipe(browserSync.stream())
-    done();
-})
+});
 
-
-gulp.task('imagemin', function (done) {
-    gulp.src([src + 'img/**/*.{png,jpg,svg,gif}', '!' + src + 'img/svg/sprite/**/*.svg'])
+//img
+gulp.task('imagemin', function () {
+    return gulp.src([`${src}img/**/*.{png,jpg,jpeg,svg,gif}`, `!${src}img/svg/sprite/**/*.svg`])
         .pipe(imagemin([
             //png
             imageminPngQuant({
@@ -113,22 +122,50 @@ gulp.task('imagemin', function (done) {
                 }]
             })
         ]))
-        .pipe(gulp.dest(dest + 'img'));
-    done();
+        .pipe(gulp.dest(`${dest}img`))
+});
+gulp.task('svgsprite', function () {
+    return gulp.src(`${src}img/svg/sprite/**/*.svg`) // svg files for sprite
+        .pipe(svgmin({
+            js2svg: {
+                pretty: true
+            }
+        }))
+        .pipe(svgSprite({
+            mode: {
+                symbol: {
+                    sprite: "../sprite.svg"  //sprite file name
+                }
+            },
+        }
+        ))
+        .pipe(gulp.dest(`${dest}img/svg`));
 });
 
-function reload(done) {
-    browserSync.reload();
-    done();
-}
+//fonts
+gulp.task('fonts', function () {
+    return gulp.src(`${src}fonts/*.*`)
+        .pipe(gulp.dest(`${dest}fonts`))
+})
 
+
+//WATCH
 gulp.task('watch', function () {
-    gulp.watch(src + 'scss/**/*.scss', gulp.parallel('scss'));
-    gulp.watch(src + 'js/*.js', gulp.parallel('scripts'));
-    gulp.watch(src + 'pug/**/*.pug', gulp.parallel('pug'));
-});
+    //pug
+    gulp.watch(`${src}pug/**/*.pug`, gulp.parallel('pug'));
+    //scss
+    gulp.watch(`${src}scss/**/*.scss`, gulp.parallel('css'));
+    //js
+    gulp.watch(`${src}js/**/*.js`, gulp.parallel('scripts'));
+})
 
-gulp.task('dev', gulp.parallel('scss', 'pug', 'browser-sync', 'watch'));
+//MAINTAIN
 
-gulp.task('build', gulp.parallel('scss', 'pug', 'imagemin', 'svgSprite', 'scripts'));
+gulp.task('clean', function () {
+    return del(`${dest}**`, { force: true })
+})
 
+//DEV TASKS
+gulp.task('dev', gulp.parallel('pug', 'css', 'scripts', 'browser-sync', 'watch'));
+
+gulp.task('build', gulp.series('clean', 'pug', 'css', 'scripts', 'svgsprite', 'imagemin', 'fonts'));

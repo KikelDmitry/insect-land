@@ -324,11 +324,11 @@ body {
 .home-section {
     align-items: flex-end;
     margin-left: auto;
-    background-image: url(/dist/img/first.jpg);
+    background-image: url(/img/first.jpg);
     background-position: top right;
 
     @include dFirst(890) {
-        background-image: url(/dist/img/first_890.jpg);
+        background-image: url(/img/first_890.jpg);
         background-size: cover;
     }
     @include dFirst(700) {
@@ -390,11 +390,11 @@ body {
     max-width: 1316px;
     justify-content: flex-end;
     margin-right: auto;
-    background-image: url(/dist/img/reasons.jpg);
+    background-image: url(/img/reasons.jpg);
     background-position: top left;
     
     @include dFirst(1024) {
-        background-image: url(/dist/img/reasons_m.jpg);
+        background-image: url(/img/reasons_m.jpg);
     }
     @include dFirst(470) {
         display: block;
@@ -486,7 +486,7 @@ body {
             width: 120px;
             height: 35px;
             
-            background-image: url("/dist/img/svg/process.svg");
+            background-image: url(/img/svg/process.svg);
             background-position: center center;
             background-size: contain;
             background-repeat: no-repeat;
@@ -498,7 +498,7 @@ body {
                 right: auto;
                 left: calc(50% - 17px);
                 bottom: -150px;
-                background-image: url("/dist/img/svg/process-vert.svg");
+                background-image: url(/img/svg/process-vert.svg);
             }
         }
     }
